@@ -153,6 +153,33 @@ reverse(root)
 inorder(root)
 
 
+def makeTree():
+    n = int(input('N:'))
+    nodes=[]
+    while(n>0):
+        nodes.append((input('>')))
+        n-=1
+    T = int(input())
+    k=[]
+    while(T>0):
+        k.append(int(input()))
+        T-=1
+
+    for i in range
+
+
+
+
+
+
+
+
+
+
+
+
+
+makeTree()
 #inorder(root)
 #print("Level Order")
 #level_order(root)
