@@ -35,7 +35,6 @@ for l in lines:
 
         #pop tag from stack 
 
-print(hrml)
 
 def decode(query):
     tags = re.split("\W",query)
