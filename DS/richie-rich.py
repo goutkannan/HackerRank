@@ -4,7 +4,7 @@ def isPalindrome(s):
       return True if s==s[::-1] else False
 
 def richieRich(s, n, k):
-        word = list(s)
+    word = list(s)
     tracker  = [0]*n 
     flag=True
     
