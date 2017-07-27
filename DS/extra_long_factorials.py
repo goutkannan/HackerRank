@@ -36,6 +36,7 @@ while(n>1):
     n-=1
     number = multiply(n,number)
 
+for d in number:
+    print(d,end='')
 
-print(len(number))
 
