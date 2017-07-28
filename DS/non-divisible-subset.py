@@ -1,6 +1,9 @@
 from collections import Counter
 import math
+
 """
+HackerRank 
+Algo:Implementation 
 Main idea:  
 1. Store the remainders of all the input integers
 2. For all entries that are divisible by k(i.e) rem = 0 , add 1 to the counter
