@@ -19,4 +19,4 @@ strlen=0
 for i in range(0,row+1):
     if(strlen<n):
       print(s[i::column],end=" ")
-      strlen+=len(s[i::column])
+      strlen+=len(s[i::column]) 
