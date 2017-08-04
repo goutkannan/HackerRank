@@ -1,0 +1,18 @@
+Why Honeywell ?
+When I started my carrer at honeywell in banaglore, I read a sign that impressed me the most. We walk throughthis door to make the world a smarter ,safer and cleaner place to live. I took imense please in doing it for 3 years and would like to contiue doing the same. 
+
+The philosophies that i learnt while working at honeywell made me better person. As a part of Honeywell Operating System I learnt sevaral techiniques to keep improving and learning from our mistakes , analyse failure etc. 
+
+Team Player: 
+While working as an engineer onsite at Honeywell facility in Arizona, I was like a liason between the team in India and the customer base in USA. I worked as a bridge in collecting the requirements and deliver to the team back in india. Collect user feedbacks and deploy the new softwares that we built.  
+
+
+
+Last project details and toughest problem n solution ?  As a part of my masters research project, we were faced with problem of parsing the debugger log 
+and generate c code as system call to OS. 
+
+Inital solution was brute force parsing with high time complexity, designed a dynamic programming solution 
+by memoizing the function call and function definition. 
+
+Another issue was converting thing C pointers to LUA variables and vice versa. 
+
