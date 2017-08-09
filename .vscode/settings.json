@@ -1,0 +1,10 @@
+{
+    "terminal.integrated.shell.windows": "%ConEmuDir%\\..\\git-for-windows\\bin\\bash.exe" ,
+
+    "files.associations": {
+        "xutility": "cpp",
+        "iostream": "cpp"
+    }
+
+    
+}
