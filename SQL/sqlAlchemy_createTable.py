@@ -21,9 +21,13 @@ class Employee(Base):
     position = Column(String)
     dateJoined = Column(Date)
 
-    def __init__(self,*args):   
-       print(args)
-       self.UserName,self.FirstName,self.LastName,self.position,self.dateJoined = args     
+    def __init__(self,uname,fname,lname,pos,doj):   
+       
+       self.UserName = uname
+       self.FirstName= fname 
+       self.LastName = lname
+       self.position = pos
+       self.dateJoined = doj
 
 engine = sqlSelector("sqlite","employeeDb")
 Base.metadata.create_all(engine) 
