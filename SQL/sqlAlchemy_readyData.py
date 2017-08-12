@@ -8,4 +8,4 @@ _Session = sessionmaker(bind=engine )
 currentSesion = _Session()
 
 for emp in currentSesion.query(Employee).order_by(Employee.eid):
-    print(emp)
+    print(emp.UserName)

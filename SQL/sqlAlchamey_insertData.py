@@ -10,7 +10,6 @@ Create a new session and bind the engine object
 """
 engine = sqlSelector("sqlite","employeeDb")
 _Session = sessionmaker(bind=engine )
-
 currentSesion = _Session()
 
 empDetail = Employee("gout.kannan","Goutham","Kannan","SDE 1","08/09/2017")
