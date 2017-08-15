@@ -24,7 +24,7 @@ class LinkedList:
     def printList(self):
         curr = self.head
         while(curr):
-            print(curr.data)
+            print(curr.data,end=' --> ')
             curr = curr.next 
     
     def insertAfter(self,old_node,new_data):
@@ -39,6 +39,27 @@ class LinkedList:
         new_head.next = self.head
         self.head  = new_head 
 
+    def deleteKey(self,key):
+        curr = self.head
+        prev = curr 
+        if curr and curr.data == key:
+            self.head = curr.next 
+            curr = None
+            return 
+
+        while(curr):
+            if curr.data ==key:
+                break 
+            prev = curr 
+            curr  = curr.next 
+        
+        if(curr):
+            prev.next = curr.next
+            curr = None  
+        else:
+            return 
+
+
 
 
 if __name__=='__main__':
@@ -49,4 +70,9 @@ if __name__=='__main__':
     myList.insert(24)
     myList.insert(4)
     myList.insertFront(1)
+
+    myList.printList() 
+    i = 4
+    print("\nDeleting {}....".format(str(i)))
+    myList.deleteKey(i)
     myList.printList() 
