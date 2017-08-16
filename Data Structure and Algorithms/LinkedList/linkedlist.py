@@ -7,6 +7,20 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
+    def getCount(self):
+        count=0
+        curr = self.head 
+        while(curr):
+            curr = curr.next
+            count+=1
+
+        return count
+
+    def getCountRec(self,head):
+        if head==None:
+            return 0
+
+        return 1+ self.getCountRec(head.next)
 
     def insert(self,data):
         newNode = Node(data)
@@ -26,7 +40,8 @@ class LinkedList:
         while(curr):
             print(curr.data,end=' --> ')
             curr = curr.next 
-    
+        print('\n')
+        
     def insertAfter(self,old_node,new_data):
         if old_node == None:
             print("Nothing is present")
@@ -62,6 +77,8 @@ class LinkedList:
 
 
 
+
+
 if __name__=='__main__':
     myList = LinkedList()
     myList.head = Node(2)
@@ -76,3 +93,7 @@ if __name__=='__main__':
     print("\nDeleting {}....".format(str(i)))
     myList.deleteKey(i)
     myList.printList() 
+    
+    print("\n",myList.getCountRec(myList.head))
+
+
