@@ -12,8 +12,7 @@ from linkedlist import LinkedList,Node
 
 class LinkedList(LinkedList):
     
-    # This function mainly calls reverseUtil()
-    # with previous as None
+   # cool implementation of reverse with 
     def reverse(self, head, k):
         current = head
         nextNode = None

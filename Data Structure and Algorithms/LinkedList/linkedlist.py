@@ -7,6 +7,16 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
+    def middleElement(self):
+        slow = self.head
+        fast = slow
+        
+        while(fast is not None and fast.next is not None):
+            fast = fast.next.next
+            slow = slow.next
+
+        return slow.data
+
     def getCount(self):
         count=0
         curr = self.head 
@@ -75,10 +85,6 @@ class LinkedList:
             return 
 
 
-
-
-
-
 if __name__=='__main__':
     myList = LinkedList()
     myList.head = Node(2)
@@ -87,6 +93,9 @@ if __name__=='__main__':
     myList.insert(24)
     myList.insert(4)
     myList.insertFront(1)
+    myList.insert(18)
+    myList.insert(32)
+    myList.insert(35)
 
     myList.printList() 
     i = 4
@@ -94,6 +103,9 @@ if __name__=='__main__':
     myList.deleteKey(i)
     myList.printList() 
     
-    print("\n",myList.getCountRec(myList.head))
+    #print("\n",myList.getCountRec(myList.head))
+    print(myList.middleElement())
+
+
 
 
