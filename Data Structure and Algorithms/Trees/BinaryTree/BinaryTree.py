@@ -123,79 +123,44 @@ def reverse(root):
 
     root.left,root.right =root.right,root.left
 
-root = Node(5)
-root.left  = Node(3)
-root.right = Node(7)
-root.left.left = Node(3)
-root.left.right = Node(4)
-root.left.right = Node(4.5)
-root.right.left = Node(6)
-root.right.right = Node(8)
-lhs = Node(4.5)
-rhs = Node(3)
 
-"""
-     5
-  3     7
- 3 4    6 8
-   4.5
+def printnthLevel(root, n):
+    assert isinstance(n,int), 'Level must be integer'
+    if root is None:
+        return 
+    if n==1:
+        print(root.data)
+    elif n>1:
+        printnthLevel(root.left,n-1)
+        printnthLevel(root.right,n-1)
 
+def diameter(root):
+    if root is None:
+        return 0 
+    lheight = height(root.left)
+    rheight = height(root.right)
 
+    ld = diameter(root.left)
+    rd = diameter(root.right)
 
-"""
-
-
-
-inorder(root)
-print("reverse")
-reverse(root)
-
-inorder(root)
-
-
-def makeTree():
-    n = int(input('N:'))
-    nodes=[]
-    while(n>0):
-        nodes.append((input('>')))
-        n-=1
-    T = int(input())
-    k=[]
-    while(T>0):
-        k.append(int(input()))
-        T-=1
-
-    for i in range
+    return max(lheight+ rheight +1,max(ld,rd))
 
 
 
 
 
+if __name__ == "__main__":
+    root = Node(5)
+    root.left  = Node(3)
+    root.right = Node(7)
+    root.left.left = Node(2)
+    root.left.right = Node(4)
+    root.left.right.right = Node(4.5)
+    root.right.left = Node(6)
+    root.right.right = Node(8)
+    root.right.right.right = Node(21)
+    root.right.right.right.left  = Node(19)
 
-
-
-
-
-
-
-
-makeTree()
-#inorder(root)
-#print("Level Order")
-#level_order(root)
-"""
-l=lca(root,3,4.5)
-
-if l is not None:
-    print (l.data)
-
-lca_1 = LCA(root,lhs,rhs)
-print (lca_1.data)
-count=[0]
-print("Height %d" % height(root))
-print(nthLargest(root,2,count))
-
-d_sum = defaultdict()
-diagonal_sum(root,0,d_sum)
-max_diag,max_sum = max(d_sum.items(), key=lambda  x: x[1])
-print(max_diag,max_sum)   """
+    #printnthLevel(root,4)
+    print(diameter(root))
+    
