@@ -41,23 +41,19 @@ class MinHeap:
         return self.heap[0]
 
 
-heap = MinHeap()
-heap.insertKey(2)
-heap.insertKey(3)
-heap.insertKey(7)
-heap.insertKey(1)
-heap.insertKey(9)
-heap.insertKey(4)
-heap.insertKey(20)
-heap.insertKey(12)
-heap.deleteKey(0)
+if __name__=='__main__':
+    heap = MinHeap()
+    heap.insertKey(2)
+    heap.insertKey(3)
+    heap.insertKey(7)
+    heap.insertKey(1)
+    heap.insertKey(9)
+    heap.insertKey(4)
+    heap.insertKey(20)
+    heap.insertKey(12)
+    heap.deleteKey(0)
 
-print(heap.extractMin()) 
-print(heap.getMin())
-heap.decreaseKey(2,1)
-print(heap.getMin())
-
-
-
-
-
+    print(heap.extractMin()) 
+    print(heap.getMin())
+    heap.decreaseKey(2,1)
+    print(heap.getMin())
