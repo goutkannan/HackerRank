@@ -146,6 +146,44 @@ def diameter(root):
     return max(lheight+ rheight +1,max(ld,rd))
 
 
+def printAncestors(root,target):
+    if root is None:
+        return False
+    if root.data == target:
+        return True
+
+    if printAncestors(root.left,target) or printAncestors(root.right, target):
+        print(root.data)
+        return True
+    return False
+
+def MorrisTraversal(root):
+     
+    # Set current to root of binary tree
+    current = root 
+     
+    while(current is not None):
+         
+        if current.left is None:
+            print(current.data,end=' ')
+            current = current.right
+        else:
+            #Find the inorder predecessor of current
+            pre = current.left
+            while(pre.right is not None and pre.right != current):
+                pre = pre.right
+  
+            # Make current as right child of its inorder predecessor
+            if(pre.right is None):
+                pre.right = current
+                current = current.left
+                 
+            # Revert the changes made in if part to restore the 
+            # original tree i.e., fix the right child of predecssor
+            else:
+                pre.right = None
+                print(current.data,end=' ')
+                current = current.right
 
 
 
@@ -163,4 +201,10 @@ if __name__ == "__main__":
 
     #printnthLevel(root,4)
     print(diameter(root))
-    
+    #    printAncestors(root,19)
+    root1 = Node(5)
+    root1.left  = Node(3)
+    root1.right = Node(7)
+    root1.left.left = Node(2)
+    root1.left.right = Node(4)
+    MorrisTraversal(root1)
