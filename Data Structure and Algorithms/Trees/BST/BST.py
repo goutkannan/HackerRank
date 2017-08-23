@@ -75,7 +75,16 @@ def isBST(root):
     
     return True
 
+def kthsmallest(root):
+    if root is None or kthsmallest.k<1:
+        return
 
+    kthsmallest(root.left)
+    kthsmallest.k-=1
+    if kthsmallest.k==0:
+        print(root.data)
+
+    kthsmallest(root.right)
 
 
 
@@ -90,6 +99,10 @@ if __name__ == "__main__":
     insert(myTree,4)
     inorder(myTree)
     print("")
+    kthsmallest.k =3
+    kthsmallest(myTree)
+
+"""    print("")
     searchKey = 13
     print("chaecking for "+str(searchKey)+"...")
     search(myTree,searchKey)
@@ -100,7 +113,7 @@ if __name__ == "__main__":
     print(extractMin(myTree))
     insert(myTree,-1)
     inorder(myTree)
-
+"""
 
 
 
