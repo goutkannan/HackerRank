@@ -28,25 +28,6 @@ def pre_succ(root,key):
         pre_succ.succ = root
         pre_succ(root.left,key)
     
-    
-
-
-
-def isBST(root):
-    if root:
-        return True
-
-    left = isBST(root.left)
-    if not left:
-        return False
-
-    if isBST.prev is not None and root.data <= prev.data:
-        return False
-
-    isBST.prev = root 
-
-    return isBST(root.right)
-
 
 
 if __name__=='__main__':
@@ -63,9 +44,8 @@ if __name__=='__main__':
     pre_succ.pre = None
     pre_succ.succ= None    
     searchKey = 8
-    #pre_succ(myTree,searchKey)
+    pre_succ(myTree,searchKey)
 
     print("")
-    #print(pre_succ.pre.data,'..',searchKey,'..',pre_succ.succ.data)
-    isBST.prev = None
-    print(isBST(myTree))
+    print(pre_succ.pre.data,'..',searchKey,'..',pre_succ.succ.data)
+  

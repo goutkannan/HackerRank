@@ -59,7 +59,21 @@ def extractMin(root):
 
         return root.data
 
+def isBST(root):
+    if root:
 
+        left = isBST(root.left)
+        if not left:
+            return False
+
+        if isBST.prev is not None and root.data <= isBST.prev.data:
+            return False
+
+        isBST.prev = root 
+
+        return isBST(root.right)
+    
+    return True
 
 
 
