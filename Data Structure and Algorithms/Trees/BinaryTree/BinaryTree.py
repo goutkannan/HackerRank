@@ -185,6 +185,22 @@ def MorrisTraversal(root):
                 print(current.data,end=' ')
                 current = current.right
 
+def isBST(root):
+    if root:
+        
+
+        left = isBST(root.left)
+        if not left:
+            return False
+
+        if isBST.prev is not None and root.data <= isBST.prev.data:
+            return False
+
+        isBST.prev = root 
+
+        return isBST(root.right)
+    
+    return True
 
 
 if __name__ == "__main__":
@@ -206,5 +222,7 @@ if __name__ == "__main__":
     root1.left  = Node(3)
     root1.right = Node(7)
     root1.left.left = Node(2)
-    root1.left.right = Node(4)
+    root1.left.right = Node(6)
     MorrisTraversal(root1)
+    isBST.prev = None
+    print(isBST(root1))

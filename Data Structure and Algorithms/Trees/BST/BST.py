@@ -58,7 +58,13 @@ def extractMin(root):
 
 
         return root.data
-    
+
+
+
+
+
+
+
 if __name__ == "__main__":
     myTree = BinarySearchTree(6)
     insert(myTree,3)
