@@ -87,6 +87,15 @@ def kthsmallest(root):
     kthsmallest(root.right)
 
 
+def add_greater_values(root):
+    """Add all greater values to every node in a given BST"""
+    if root is None:
+        return
+
+    add_greater_values(root.right)
+    add_greater_values.cumulative += root.data
+    root.data = add_greater_values.cumulative
+    add_greater_values(root.left)
 
 if __name__ == "__main__":
     myTree = BinarySearchTree(6)
@@ -99,8 +108,12 @@ if __name__ == "__main__":
     insert(myTree,4)
     inorder(myTree)
     print("")
-    kthsmallest.k =3
+    kthsmallest.k = 3
     kthsmallest(myTree)
+    add_greater_values.cumulative = 0 
+    add_greater_values(myTree)
+    inorder(myTree)
+    print("")
 
 """    print("")
     searchKey = 13
