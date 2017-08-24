@@ -52,14 +52,18 @@ def search(root,value):
     return
 
 def extractMin(root):
+    """ Find that smallest element in a BST which is the left most element """
     if root is not None:
-        while(root.left):
+        while root.left:
             root = root.left
 
 
         return root.data
 
 def isBST(root):
+    """ Given a Binary Tree check if it is a BST or not 
+    Checking for validity while doing the inorder traversal
+    """
     if root:
 
         left = isBST(root.left)
@@ -76,6 +80,7 @@ def isBST(root):
     return True
 
 def kthsmallest(root):
+    """ printing the kth smallest element in a BST """
     if root is None or kthsmallest.k<1:
         return
 
