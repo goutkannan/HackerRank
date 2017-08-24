@@ -45,9 +45,10 @@ def post_order(root):
         post_order(root.right)
         print(root.data)
         
-""" BFS Using Queues"""
+
         
 def level_order(root):
+    """ BFS Using Queues"""
     queue=[]
     queue.append(root)
     while(len(queue)>0):
@@ -92,7 +93,7 @@ def diagonal_sum(root,curr_diag,sum):
         else:
             sum[curr_diag]=root.data
 
-        diagonal_sum(root.right,curr_diag,sum)
+        diagonal_sum(root.right, curr_diag,sum)
 
 
         
@@ -192,15 +193,32 @@ def isBST(root):
         left = isBST(root.left)
         if not left:
             return False
-
+      
         if isBST.prev is not None and root.data <= isBST.prev.data:
             return False
 
         isBST.prev = root 
+        
 
         return isBST(root.right)
     
     return True
+
+def size(root):
+    """count of left subtrees + right subtrees + 1"""
+
+    if root is None:
+        return 0
+
+    return size(root.left) + size(root.right) + 1
+
+def largestBST(root):
+    """ compute the max number of nodes that form a BST in a given binary tree"""
+    isBST.prev = None
+    if isBST(root):
+        return size(root)
+    else:
+        return max(largestBST(root.left), largestBST(root.right)) 
 
 
 if __name__ == "__main__":
@@ -222,7 +240,8 @@ if __name__ == "__main__":
     root1.left  = Node(3)
     root1.right = Node(7)
     root1.left.left = Node(2)
-    root1.left.right = Node(6)
+    root1.left.right = Node(9)
     MorrisTraversal(root1)
     isBST.prev = None
-    print(isBST(root1))
+    print("")
+    print("Size of larget BST is ", largestBST(root1))
