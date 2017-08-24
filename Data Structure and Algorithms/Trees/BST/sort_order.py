@@ -14,6 +14,8 @@ def inorderPrint(array,start,end):
     print(array[start],end=' ')
     inorderPrint(array,2*start+2,end)
 
+
+
 if __name__=="__main__":
     arr = [4,2,5,1,3,4.5,6,-1 ]
     inorderPrint(arr,0,len(arr)-1)

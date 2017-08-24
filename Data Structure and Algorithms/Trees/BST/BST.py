@@ -102,6 +102,8 @@ def add_greater_values(root):
     root.data = add_greater_values.cumulative
     add_greater_values(root.left)
 
+
+
 if __name__ == "__main__":
     myTree = BinarySearchTree(6)
     insert(myTree,3)
