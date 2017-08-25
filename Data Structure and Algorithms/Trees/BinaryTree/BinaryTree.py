@@ -5,6 +5,7 @@ Created on Sun Feb 12 13:03:05 2017
 @author: Goutham
 """
 from collections import defaultdict
+import copy
 
 class Node:
     def __init__(self,data):
@@ -15,7 +16,7 @@ class Node:
 def inorder(root):
     if root :
         inorder(root.left)
-        print(root.data)
+        print(root.data, end=' ')
         inorder(root.right)
 
 def nthLargest(root,n,count):
@@ -220,6 +221,51 @@ def largestBST(root):
     else:
         return max(largestBST(root.left), largestBST(root.right)) 
 
+def make_bst_util(root):
+    """ Given a tree 2 nodes are out of place preventing it becoming a BST
+    Utility function that computes the elements to be swapped. 
+    """
+    if root is None:
+        return 
+
+    make_bst_util(root.left)
+
+    if make_bst_util.prev and make_bst_util.prev.data >= root.data:
+        if not make_bst_util.first:
+            make_bst_util.first= copy.deepcopy(make_bst_util.prev)
+            make_bst_util.middle = copy.deepcopy(root)
+        else:
+            make_bst_util.last = copy.deepcopy(root)
+    
+    make_bst_util.prev= copy.deepcopy(root)
+    make_bst_util(root.right) 
+
+def swap(root, a , b):
+    if root:
+        if root.data == a.data:
+            root.data = b.data 
+            
+        elif root.data == b.data:
+            root.data = a.data
+
+        
+        swap(root.left, a, b)
+        swap(root.right, a, b)   
+
+def make_bst(root):
+    """ Given a tree 2 nodes are out of place preventing it becoming a BST """
+    if root:
+        make_bst_util.first = None
+        make_bst_util.last = None
+        make_bst_util.middle = None
+        make_bst_util.prev = None
+
+        make_bst_util(root)
+        if  make_bst_util.first and make_bst_util.last:
+            swap(root,make_bst_util.first,make_bst_util.last)
+        elif make_bst_util.first and make_bst_util.middle:
+            swap(root,make_bst_util.first,make_bst_util.middle)
+
 
 if __name__ == "__main__":
     root = Node(5)
@@ -238,10 +284,13 @@ if __name__ == "__main__":
     #    printAncestors(root,19)
     root1 = Node(5)
     root1.left  = Node(3)
-    root1.right = Node(7)
+    root1.right = Node(4)
     root1.left.left = Node(2)
-    root1.left.right = Node(9)
+    root1.left.right = Node(3.5)
     MorrisTraversal(root1)
     isBST.prev = None
     print("")
-    print("Size of larget BST is ", largestBST(root1))
+    # print("Size of larget BST is ", largestBST(root1))
+    make_bst(root1)
+    inorder(root1)
+

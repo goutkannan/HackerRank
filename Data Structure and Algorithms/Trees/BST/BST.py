@@ -31,9 +31,9 @@ def preOrder(root):
         return
     
     print(root.data, end=' ')
-    inorder(root.left)
+    preOrder(root.left)
    
-    inorder(root.right)
+    preOrder(root.right)
     
 
 def search(root,value):
@@ -101,6 +101,62 @@ def add_greater_values(root):
     add_greater_values.cumulative += root.data
     root.data = add_greater_values.cumulative
     add_greater_values(root.left)
+
+
+def merge_bst(root1, root2):
+    """ Given 2 unbalanced BSTs, print the inorder traversal of the merged resultant tree 
+    Algo: Iterative inorder traversal
+    DS: One stack per tree  
+    """
+    if root1 is None:
+        inorder(root2)
+        return
+    elif  root2 is None:
+        inorder(root1)
+        return 
+    current1 = root1 
+    current2 = root2 
+
+    stack1 = []
+    stack2 = []
+
+    while(len(stack1)!=0 or len(stack2)!=0 or current1 is not None or current2 is not None):
+        if current1 is not None:
+            stack1.append(current1)
+            current1 = current1.left
+
+        if current2 is not None:
+            stack2.append(current2)
+            current2 = current2.left
+        
+        if len(stack1) == 0:
+            while len(stack2) > 0:
+                current2 = stack2.pop()
+                current2.left = None
+                inorder(current2)
+            return 
+        if len(stack2)==0:
+            while len(stack1)>0:
+                current1 = stack1.pop()
+                current1.left = None
+                inorder(current1)
+            return
+
+
+        current1 = stack1.pop()
+        current2 = stack2.pop()
+
+        if current1.data < current2.data:
+            print(current1.data)
+            current1 = current1.next
+            stack2.append(current2)
+            current2 = None 
+        else:
+            print(current2.data)
+            current2 = current2.next
+            stack1.append(current1)
+            current1 = None
+
 
 
 
