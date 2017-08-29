@@ -218,4 +218,51 @@ def insert(root,value):
 
 ```python
 
+def delete_node(root, key):
+    if root is None:
+        return root
+    
+    if key < root.data:
+        root.left = delete_node(root.left, key)
+    elif key > root.data:
+        root.right = delete_node(root.right, key)
+    else:
+        if root.left is None or root.right is None:
+            temp = None
+            if root.left is None:
+                temp = root.right
+            else:
+                temp = root.left
+            
+            if temp:
+                root = temp
+            else:
+                temp = root
+                root = None
+        else:
+            temp = min_node(root.right)
+            root.data = temp.data 
+            root.right = delete_node(root.right, temp.data)
+    
+    if root is None:
+        return root 
+    
+    root.height =  1 + max(root.left,root.right)
+    difference = diff_height(root)
+
+    if difference > 1 and value < root.left.data:
+        return right_rotate(root)
+
+    if difference < -1 and value > root.right.data:
+        return left_rotate(root)
+
+    if difference > 1 and value > root.left.data: 
+        root.left = left_rotate(root.left)
+        return right_rotate(root)
+
+    if difference < -1 and value < root.right.data:
+        root.right = right_rotate(root.right)
+        return left_rotate(root)
+
+    return root 
 ```
