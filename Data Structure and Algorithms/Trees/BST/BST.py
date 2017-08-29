@@ -157,7 +157,9 @@ def merge_bst(root1, root2):
             stack1.append(current1)
             current1 = None
 
-
+def pair_sum_exists(root, value):
+    """Returns true if a pair with target sum exists in BST, otherwise false"""
+    
 
 
 if __name__ == "__main__":
