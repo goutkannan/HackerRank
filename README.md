@@ -6,7 +6,8 @@ This repo has various streams **Data Structures & Algorithms** , **Design Patter
 contains implmentation of variuos Data Structures and solutions to HackerRank,GeeksforGeeks stream of Data Structures and Algorithms.
 
 #### 	Geeks for Geeks 
-	practise question from Geeks for Geeks
+		Practise question from Geeks for Geeks
+
 ####    Linked List
 ####    Stacks
 ####	Queues
