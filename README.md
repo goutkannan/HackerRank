@@ -13,12 +13,12 @@ contains implmentation of variuos Data Structures and solutions to HackerRank,Ge
 ####	Queues
 ####	Heaps
 ####    Trees
-#####	Binary Trees
-#####	Binary Search Trees
-#####    AVL Trees
-#####    Segment Trees
-#####    Red-Black Trees
-#####	Splay Trees
+#####\t	   Binary Trees
+#####\t    Binary Search Trees
+#####\t    AVL Trees
+#####\t    Segment Trees
+#####\t    Red-Black Trees
+#####\t	   Splay Trees
 ####    Graphs
 
 ### DesignPatterns 
