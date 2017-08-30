@@ -5,7 +5,7 @@ class SplayTree(object):
         self.right = None
 
 def search(root,value):
-    if root is None or root.data = value:
+    if root is None or root.data == value:
         return root
 
     if root.data > value: # left side
@@ -49,17 +49,25 @@ def search(root,value):
 
 def insert(root,value):
     if root is None:
-        root = BinarySearchTree(value)
+        return SplayTree(value)
+    
+    root = search(root,value)
+
+    if root.data == value:
+         return root
+
+    newNode = SplayTree(value)
+
     if root.data > value:
-        if root.left is None:
-            root.left  = BinarySearchTree(value)
-        else:
-            insert(root.left,value)
+        newNode.right = root
+        newNode.left = root.left
+        root.left = None
     else:
-        if root.right is None:
-            root.right  = BinarySearchTree(value)
-        else:
-            insert(root.right,value)
+        newNode.left = root
+        newNode.right = root.right
+        root.right = None
+
+    return newNode
 
 def right_rotate(root):
     """
