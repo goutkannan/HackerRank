@@ -1,0 +1,6 @@
+C:\Users\Goutham\Documents\GitHub\HackerRank\DS\C#\oops\oops\bin\Debug\oops.exe.config
+C:\Users\Goutham\Documents\GitHub\HackerRank\DS\C#\oops\oops\bin\Debug\oops.exe
+C:\Users\Goutham\Documents\GitHub\HackerRank\DS\C#\oops\oops\bin\Debug\oops.pdb
+C:\Users\Goutham\Documents\GitHub\HackerRank\DS\C#\oops\oops\obj\Debug\oops.csprojResolveAssemblyReference.cache
+C:\Users\Goutham\Documents\GitHub\HackerRank\DS\C#\oops\oops\obj\Debug\oops.exe
+C:\Users\Goutham\Documents\GitHub\HackerRank\DS\C#\oops\oops\obj\Debug\oops.pdb
