@@ -13,13 +13,16 @@ contains implmentation of variuos Data Structures and solutions to HackerRank,Ge
 ####	Queues
 ####	Heaps
 ####    Trees
-#####\t	   Binary Trees
-#####\t    Binary Search Trees
-#####\t    AVL Trees
-#####\t    Segment Trees
-#####\t    Red-Black Trees
-#####\t	   Splay Trees
-####    Graphs
+<ol>
+
+<li>#####	 Binary Trees </li>
+<li>#####    Binary Search Trees</li>
+<li>#####    AVL Trees</li>
+<li>#####    Segment Trees</li>
+<li>#####    Red-Black Trees</li>
+<li>#####	 Splay Trees</li>
+<li>####    Graphs</li>
+</ol>
 
 ### DesignPatterns 
 as the name suggests conatains the implementation of patterns in python 
