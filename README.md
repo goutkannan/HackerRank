@@ -15,13 +15,13 @@ contains implmentation of variuos Data Structures and solutions to HackerRank,Ge
 ####    Trees
 <ol>
 
-<li>#####	 Binary Trees </li>
-<li>#####    Binary Search Trees</li>
-<li>#####    AVL Trees</li>
-<li>#####    Segment Trees</li>
-<li>#####    Red-Black Trees</li>
-<li>#####	 Splay Trees</li>
-<li>####    Graphs</li>
+<li>	 Binary Trees </li>
+<li>    Binary Search Trees</li>
+<li>    AVL Trees</li>
+<li>    Segment Trees</li>
+<li>    Red-Black Trees</li>
+<li>	 Splay Trees</li>
+<li>    Graphs</li>
 </ol>
 
 ### DesignPatterns 
