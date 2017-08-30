@@ -21,8 +21,10 @@ contains implmentation of variuos Data Structures and solutions to HackerRank,Ge
 <li>    Segment Trees</li>
 <li>    Red-Black Trees</li>
 <li>	 Splay Trees</li>
-<li>    Graphs</li>
 </ol>
+
+#### 	Graphs
+
 
 ### DesignPatterns 
 as the name suggests conatains the implementation of patterns in python 
