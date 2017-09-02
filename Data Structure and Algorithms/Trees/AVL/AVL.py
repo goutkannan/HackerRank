@@ -8,7 +8,7 @@ class AVLTree(object):
         self.data = data
         self.left = None
         self.right = None
-        self.height = 0
+        self.height = 1
 
 def diff_height(root):
     """ Difference in heights of left sub-trees and right sub-trees  """
@@ -82,15 +82,6 @@ def insert(root,value):
         return left_rotate(root)
 
     return root 
-
-
-
-
-
-
-
-
-
 
 
 
