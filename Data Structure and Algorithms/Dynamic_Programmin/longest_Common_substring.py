@@ -19,6 +19,8 @@ def lcs_dp(X, Y, m, n):
             
     return table[m][n]
 
+
+
 S1 = "ABCDEFGH"
 S2 = "AxByCzDZE"
 
