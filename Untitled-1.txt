@@ -1,0 +1,15 @@
+I have completed master'sin computer science this year and prior to this, I had worked for Honeywell International both in US and Abroad. 
+At Honeywell, I part of a Flight simulator integration team main task was implement 
+middleware in C++ the makes the RTOS application run on Windows. I was with Honeywell more that 3 yrs
+implemented Supporting tools for simulator using C# .net, Data tracking using WPF n MS SQLSERVER , Build launch automation C# winforms. 
+
+during this time, I was involved in all SDLC activieties ranging from documentations, implementation, testing. 
+
+
+As, a part of my master's research, I have added support for LUA langugae to a in-house OS. It is now being using 10+ researchers. 
+I has been accpeted as Open Source contribution. Entire code base for LUA is in C and OS was implemented in C. Additionally I have implemented 
+the test framework for OS using Automated Python scripts. 
+
+Pet Project, I am passionate about python based development, I have create game in Django which enables users to match counties and their flags.
+
+I feel that I can contribute to your technology stack that involves C# / Python / Django. 
