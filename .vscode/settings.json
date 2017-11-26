@@ -3,8 +3,8 @@
 
     "files.associations": {
         "xutility": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "xlocale": "cpp",
+        "xstring": "cpp"
     }
-
-    
 }
