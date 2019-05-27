@@ -37,7 +37,6 @@ def Dijkstra(graph, start):# pylint: disable=invalid-name
             elif distance[adj] > d:
                 distance[adj] = d
                 priorityqueue.decreaseKey(adj, d)
-            
             path[adj] = v
 
     return distance, path

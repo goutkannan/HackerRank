@@ -1,21 +1,29 @@
 __author__ = 'Goutham'
 import itertools
+import Queue
 
 from collections import defaultdict
 
 NODE =0
 COLOR =1
 """
-Uni-directional Graphs 
+Uni-directional Graphs
 """
-
 class Graph:
     def __init__(self):
         self.graph = defaultdict(list)
+        self.vertex = None
 
-    def addEdge(self,edge_from,edge_to,weight):
+    def addEdge_weight(self,edge_from,edge_to,weight):
+        self.graph[edge_from].append((edge_to,weight))
 
-        self.graph[edge_from].append([edge_to,weight])
+    def addEdge(self,edge_from,edge_to):
+        self.graph[edge_from].append(edge_to)
+
+    def numVertex(self):
+        if not self.vertex:
+            self.vertex = max(self.graph.keys()) +1
+        return self.vertex
 
     def test(self):
         for i in (self.graph[0]):
@@ -25,11 +33,9 @@ class Graph:
         for k,v in self.graph.items():
             print(k,v)
 
-    """
-    CLRS Implementation of DFS 
-
-    """
     def dfs_visit(self, u, color, found_cycle):
+        """
+        CLRS Implementation of DFS """
         if found_cycle[0]:                          # - Stop dfs if cycle is found.
             return
         color[u] = "gray"                           # - Gray nodes are in the current path
@@ -53,12 +59,10 @@ class Graph:
                 l.append(v[0])
         return list(set(l))
 
-    """
-    Using the DFS Visit to find if there is vertex that is already visited 
-    Note: Not a great way of finding cycles. Union - Find is better 
-    
-    """
     def cycle_exists(self):                     # - G is a directed graph
+        """
+        Using the DFS Visit to find if there is vertex that is already visited
+        Note: Not a great way of finding cycles. Union - Find is better """
         color = { u : "white" for u in self.nodes()  }  # - All nodes are initially white
         found_cycle = [False]                # - Define found_cycle as a list so we can change
                                              # its value per reference, see:
@@ -73,15 +77,34 @@ class Graph:
        # print(color.items())
         return found_cycle[0]
 
-
-
+    def bfs(self, u=0):
+        """ print vertices breath wise """
+        visited = [False]*self.numVertex()
+        _queue = Queue.Queue()
+        _queue.put(u)
+        visited[u] = True
+        while not _queue.empty():
+            v = _queue.get()
+            print("Node {}".format(str(v)))
+            for child in self.graph[v]:
+                if visited[child] == False:
+                    _queue.put(child)
+                    visited[child] = True
 g = Graph()
 
 #addEdge(from,to,weight)
-g.addEdge(0, 1,5)
-g.addEdge(0, 2,0)
-g.addEdge(1, 3,0)
-g.addEdge(2, 4,0)
-g.addEdge(3, 2,0)
+g.addEdge(0, 1)
+g.addEdge(1, 0)
 
-print (g.cycle_exists())
+g.addEdge(0, 2)
+g.addEdge(2, 0)
+g.addEdge(1, 3)
+g.addEdge(3, 1)
+g.addEdge(2, 4)
+g.addEdge(4, 2)
+g.addEdge(10,2)
+g.addEdge(2,10)
+g.addEdge(3, 4)
+g.addEdge(4,3)
+g.bfs()
+#print (g.cycle_exists())

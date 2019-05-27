@@ -325,7 +325,12 @@ if __name__ == "__main__":
     root.right.right.right.left  = Node(19)
     #print(str(nthLargest(root, 3)
     inorder(root)
+    print("\n")
+    reverse(root)
+
+    inorder(root)
     #nthLargest(root,4, [0])
+
     printnthsmallest(root, 2)
 
     #print(diameter(root))
