@@ -1,9 +1,8 @@
 __author__ = 'Goutham'
 import itertools
-import Queue
-
+from queue import LifoQueue as Stack
 from collections import defaultdict
-
+from queue import Queue
 NODE =0
 COLOR =1
 """
@@ -21,8 +20,10 @@ class Graph:
         self.graph[edge_from].append(edge_to)
 
     def numVertex(self):
-        if not self.vertex:
-            self.vertex = max(self.graph.keys()) +1
+        if self.vertex is None:
+            max_v = max(self.graph)
+            max_u = max(self.graph.values())[0]
+            self.vertex =  max(max_u, max_v) + 1
         return self.vertex
 
     def test(self):
@@ -92,39 +93,87 @@ class Graph:
                     visited[child] = True
 
     def DFSUtil(self, node, visited):
-        visited[node] = True:
-            for child in self.graph[node]:
-                if visited[child] == False:
-                    self.DFSUtil(child, visited)
+        visited[node] = True
+        print(node, end=", ")
+        for child in self.graph[node]:
+            if visited[child] == False:
+                self.DFSUtil(child, visited)
+
+    def DFSOrder(self, node, visited, stack):
+        visited[node] = True
+        for child in self.graph[node]:
+            if visited[child] == False:
+                self.DFSOrder(child, visited, stack)
+
+        #pushing into a stack
+        stack.put(node)
 
     def mother_vertex(self):
-        visited = [False] * self.numVertex
+        visited = [False] * self.numVertex()
         result = None
         for nodes in self.graph:
             if visited[node] == False:
                 self.DFSUtil(node, visited)
                 result = node
 
-        visited = [False] * self.numVertex
+        visited = [False] * self.numVertex()
         self.DFSUtil(node, visited)
         return node if all(visited) else -1
 
+    def transposeGraph(self):
+        gt = Graph()
+        for node in self.graph:
+            for vertex in self.graph[node]:
+                gt.addEdge(int(vertex), int(node))
 
-g = Graph()
+        return gt
 
-#addEdge(from,to,weight)
-g.addEdge(0, 1)
-g.addEdge(1, 0)
+    def print_strongly_connected_graphs(self):
+        visited = [False] * self.numVertex()
+        stack = Stack()
+        for vertex in range(self.numVertex()):
+            if visited[vertex] == False:
+                self.DFSOrder(vertex, visited, stack)
 
-g.addEdge(0, 2)
-g.addEdge(2, 0)
-g.addEdge(1, 3)
-g.addEdge(3, 1)
-g.addEdge(2, 4)
-g.addEdge(4, 2)
-g.addEdge(10,2)
-g.addEdge(2,10)
-g.addEdge(3, 4)
-g.addEdge(4,3)
-g.bfs()
+        #need to reverse the edges aka transpose of the graph
+        graphT = self.transposeGraph()
+
+        visited = [False] * self.numVertex()
+        while not stack.empty():
+            vertex = stack.get_nowait()
+            if visited[vertex] == False:
+                graphT.DFSUtil(vertex, visited)
+                print(" ")
+
+def test_traversal():
+    g = Graph()
+
+    #addEdge(from,to,weight)
+    g.addEdge(0, 1)
+    g.addEdge(1, 0)
+
+    g.addEdge(0, 2)
+    g.addEdge(2, 0)
+    g.addEdge(1, 3)
+    g.addEdge(3, 1)
+    g.addEdge(2, 4)
+    g.addEdge(4, 2)
+    g.addEdge(10,2)
+    g.addEdge(2,10)
+    g.addEdge(3, 4)
+    g.addEdge(4,3)
+    g.bfs()
+
+def test_scc():
+    g = Graph()
+    g.addEdge(1, 0)
+    g.addEdge(0, 2)
+    g.addEdge(2, 1)
+    g.addEdge(0, 3)
+    g.addEdge(3, 4)
+    print ("Following are strongly connected components " +
+                           "in given graph")
+    g.print_strongly_connected_graphs()
+
+test_scc()
 #print (g.cycle_exists())
