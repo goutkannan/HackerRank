@@ -90,6 +90,26 @@ class Graph:
                 if visited[child] == False:
                     _queue.put(child)
                     visited[child] = True
+
+    def DFSUtil(self, node, visited):
+        visited[node] = True:
+            for child in self.graph[node]:
+                if visited[child] == False:
+                    self.DFSUtil(child, visited)
+
+    def mother_vertex(self):
+        visited = [False] * self.numVertex
+        result = None
+        for nodes in self.graph:
+            if visited[node] == False:
+                self.DFSUtil(node, visited)
+                result = node
+
+        visited = [False] * self.numVertex
+        self.DFSUtil(node, visited)
+        return node if all(visited) else -1
+
+
 g = Graph()
 
 #addEdge(from,to,weight)
